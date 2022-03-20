@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {MenuItemsProvider} from './contexts/MenuItemsContext';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MenuItemsProvider>
+     <App />
+    </MenuItemsProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
