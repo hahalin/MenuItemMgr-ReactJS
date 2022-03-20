@@ -26,6 +26,14 @@ export const MenuItemsProvider=({children})=>{
             return [...prevMenuItems,{id:uuidV4(),categoryId,name,description}]
         })
     }
+
+    function addCategory({category}){
+        if (menuItems.filter(n=>n.category===category).length===0){
+            setMenuItems(prevMenuItems=>{
+                return [...prevMenuItems,{category:category}]
+            });
+        }
+    }
     
     function deleteMenuItem(id){
         setMenuItems(prevMenuItems=>{
@@ -38,6 +46,7 @@ export const MenuItemsProvider=({children})=>{
             menuItems,
             getCategoryMenuItems,
             addMenuItem,
+            addCategory,
             deleteMenuItem
         }}>
             {children}

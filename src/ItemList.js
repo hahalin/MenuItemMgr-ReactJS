@@ -11,6 +11,10 @@ export default function ItemList(props) {
         setShowWinAdd(true);
     }
 
+    function handleClose(){
+        setShowWinAdd(false);
+    }
+
     let data = [
         { category: '性別', items: [{ id: 'M', text: '男' }, { id: 'F', text: '女' }] },
         { category: '縣市', items: [{ id: 'taipei', text: '台北' }, { id: 'taichung', text: '台中' }] }
@@ -20,13 +24,13 @@ export default function ItemList(props) {
         <ThemeContext.Consumer>
             {darkTheme => {
                 return <div>
-                    <InputItem show={showWinAdd}></InputItem>                        
+                    <InputItem show={showWinAdd} handleClose={handleClose}></InputItem>                        
                     <div className={["content-wrapper", darkTheme ? "dark-mode" : ""].join(" ")}>
                         <div className="content-header">
                             <div className="container-fluid">
                                 <div className="row mb-2">
                                     <div className="col-sm-6">
-                                        <h1 className="m-0">ItemList</h1>
+                                        <h1 className="m-0">Item List</h1>
                                     </div>{/* /.col */}
                                     <div className="col-sm-6">
                                         <ol className="breadcrumb float-sm-right">
@@ -44,12 +48,13 @@ export default function ItemList(props) {
                                 {/* Main row */}
                                 <div className="row">
                                     <div className="col-12">
-                                        <button className='btn btn-default' onClick={handleAdd}>Add Item</button>
+                                        <button className='btn btn-primary' onClick={handleAdd}>Add Item</button>
                                     </div>
                                 </div>
+                                <br/>
                                 <div className="row">
                                     <div className="col-8">
-                                        <div className="card card-primary card-tabs">
+                                        <div className="card card-info card-tabs">
                                             <div className="card-header">
                                                 <ul className="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                                                     {
