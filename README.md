@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## 使用方式
 
 在專案資料夾下，使用以下指令執行
+
 In the project directory, you can run:
 
 ### `npm start`g
