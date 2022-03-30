@@ -21,16 +21,24 @@ export const MenuItemsProvider=({children})=>{
         return menuItems.filter(n=>n.id===id);
     }
 
-    function addMenuItem({categoryId,name,description}){
-        setMenuItems(prevMenuItems=>{
-            return [...prevMenuItems,{id:uuidV4(),categoryId,name,description}]
-        })
+    function addMenuItem({category,name,description}){
+        if (menuItems.filter(n=>n.category===category).length===0){
+            setMenuItems(prevMenuItems=>{
+                return [...prevMenuItems,{category:category,items:[{name:name,description:description}]}]
+            });
+        }
+       
+        //categoryItem.items.push(
+        //    {id:uuidV4(),name:name,description:description}
+        //);
+        //setMenuItems(menuItems);
     }
 
     function addCategory({category}){
         if (menuItems.filter(n=>n.category===category).length===0){
             setMenuItems(prevMenuItems=>{
-                return [...prevMenuItems,{category:category}]
+                console.log(prevMenuItems);
+                return [...prevMenuItems,{category:category,items:[]}];
             });
         }
     }

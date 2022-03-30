@@ -1,17 +1,16 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { ThemeContext } from './contexts/ThemeContext';
 import InputItem from './ItemList/InputItem';
 
 export default function ItemList(props) {
 
-    const [showWinAdd,setShowWinAdd]=useState(false);
+    const [showWinAdd, setShowWinAdd] = useState(false);
 
     function handleAdd() {
-        console.log("add");
         setShowWinAdd(true);
     }
 
-    function handleClose(){
+    function handleClose() {
         setShowWinAdd(false);
     }
 
@@ -24,7 +23,7 @@ export default function ItemList(props) {
         <ThemeContext.Consumer>
             {darkTheme => {
                 return <div>
-                    <InputItem show={showWinAdd} handleClose={handleClose}></InputItem>                        
+                    <InputItem show={showWinAdd} handleClose={handleClose}></InputItem>
                     <div className={["content-wrapper", darkTheme ? "dark-mode" : ""].join(" ")}>
                         <div className="content-header">
                             <div className="container-fluid">
@@ -51,7 +50,7 @@ export default function ItemList(props) {
                                         <button className='btn btn-primary' onClick={handleAdd}>Add Item</button>
                                     </div>
                                 </div>
-                                <br/>
+                                <br />
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="card card-info card-tabs">
@@ -59,9 +58,8 @@ export default function ItemList(props) {
                                                 <ul className="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
                                                     {
                                                         data.map((n, i) => {
-                                                            console.log(n);
                                                             return (
-                                                                <li className="nav-item">
+                                                                <li className="nav-item" key={i}>
                                                                     <a className={["nav-link", i == 0 ? "active" : ""].join(" ")}
                                                                         id={"custom-tabs-" + (i + 1) + "-tab"}
                                                                         data-toggle="pill"
@@ -87,8 +85,10 @@ export default function ItemList(props) {
                                                                     aria-labelledby={"custom-tabs-" + (i + 1) + "-tab"}>
                                                                     <table className="table">
                                                                         <thead>
-                                                                            <th width="200" >id</th>
-                                                                            <th>text</th>
+                                                                            <tr>
+                                                                                <th width="200" >id</th>
+                                                                                <th>text</th>
+                                                                            </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             {

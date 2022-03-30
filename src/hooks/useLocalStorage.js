@@ -14,8 +14,10 @@ function useLocalStorage(key,defaultValue){
     })
 
     useEffect(()=>{
+        console.log('useEffect',value);
         localStorage.setItem(key,JSON.stringify(value))
-    })
+    });
+
     return [value,setValue]
 }
 

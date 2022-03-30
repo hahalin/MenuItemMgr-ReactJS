@@ -17,14 +17,20 @@ export default function InputItem(props) {
     const textRef = useRef();
     const categoryRef=useRef();
 
+
     useEffect(() => {
         setShow(props.show);
     }, [props.show]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        addCategory({
-            category: categoryRef.current.value
+        //addCategory({
+        //    category: categoryRef.current.value
+        //});
+        addMenuItem({
+            category:categoryRef.current.value,
+            name:idRef.current.value,
+            description:textRef.current.value
         });
         props.handleClose();
     }
