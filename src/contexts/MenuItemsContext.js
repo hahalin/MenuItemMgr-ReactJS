@@ -10,52 +10,61 @@ export function useMenuItems(){
 
 export const MenuItemsProvider=({children})=>{
     
-    //const [menuItems,setMenuItems]=useState([]);
     const [menuItems,setMenuItems]=useLocalStorage("menuItems",[]);
 
+    function getCategories(){
+        return menuItems.map(n=>{return {id:n.id,category:n.category};});
+    }
+
     function getCategoryMenuItems(categoryId){
-        return menuItems.filter(n=>n.categoryId===categoryId);
+        return menuItems.filter(n=>n.id===categoryId);
     }
 
-    function getCategoryMenuItemById(id){
-        return menuItems.filter(n=>n.id===id);
-    }
-
-    function addMenuItem({category,name,description}){
-        if (menuItems.filter(n=>n.category===category).length===0){
-            setMenuItems(prevMenuItems=>{
-                return [...prevMenuItems,{category:category,items:[{name:name,description:description}]}]
-            });
-        }
-       
-        //categoryItem.items.push(
-        //    {id:uuidV4(),name:name,description:description}
-        //);
-        //setMenuItems(menuItems);
+    function addMenuItem({categoryId,code,text}){
+        console.log(categoryId);
+        console.log(code);
+        console.log(text);
+        setMenuItems(previtems=>previtems.map(m => 
+            m.id==categoryId?
+            {
+               ...m,items:[...m.items,{id:uuidV4(),code:code,text:text}]
+            }:
+            m
+        ));
+        
     }
 
     function addCategory({category}){
         if (menuItems.filter(n=>n.category===category).length===0){
             setMenuItems(prevMenuItems=>{
-                console.log(prevMenuItems);
-                return [...prevMenuItems,{category:category,items:[]}];
+                return [...prevMenuItems,{id:uuidV4(),category:category,items:[]}];
             });
         }
     }
     
-    function deleteMenuItem(id){
-        setMenuItems(prevMenuItems=>{
-            return prevMenuItems.filter(n=>n.id!==id)
-        })        
+    function removeMenuItem(id){
+        setMenuItems(prev=>
+            prev.map(c=>
+                c.items.filter(m=>m.id==id).length>0?
+                {
+                    ...c,items:c.items.filter(m=>m.id!=id)
+                }:c
+            )
+        );
+    }
+
+    function removeCategory(id){
+        setMenuItems(prev=>prev.filter(m=>m.id!=id));
     }
 
     return (
         <MenuItemsContext.Provider value={{
             menuItems,
-            getCategoryMenuItems,
+            getCategories,
             addMenuItem,
             addCategory,
-            deleteMenuItem
+            removeMenuItem,
+            removeCategory
         }}>
             {children}
         </MenuItemsContext.Provider>

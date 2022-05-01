@@ -9,7 +9,7 @@ import {MenuItemsProvider} from './contexts/MenuItemsContext';
 ReactDOM.render(
   <React.StrictMode>
     <MenuItemsProvider>
-     <App />
+     <App key={1} />
     </MenuItemsProvider>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import { ThemeContext } from './contexts/ThemeContext';
 import InputItem from './ItemList/InputItem';
+import InputCategory from './ItemList/InputCategory';
+import { useMenuItems } from "./contexts/MenuItemsContext"
+
 
 export default function ItemList(props) {
 
     const [showWinAdd, setShowWinAdd] = useState(false);
+    const [activeCategoryId, setActiveCategoryId] = useState('');
+    const [showWinCategoryAdd, setShowWinCategoryAdd] = useState(false);
+    const { menuItems, getCategories, removeMenuItem,removeCategory } = useMenuItems();
 
-    function handleAdd() {
+    function handleAdd(id) {
+        setActiveCategoryId(id);
         setShowWinAdd(true);
     }
 
@@ -14,16 +21,38 @@ export default function ItemList(props) {
         setShowWinAdd(false);
     }
 
-    let data = [
-        { category: '性別', items: [{ id: 'M', text: '男' }, { id: 'F', text: '女' }] },
-        { category: '縣市', items: [{ id: 'taipei', text: '台北' }, { id: 'taichung', text: '台中' }] }
-    ];
+    function handleAddCategory() {
+        setShowWinCategoryAdd(true);
+    }
+
+    function handleCloseCategory() {
+        setShowWinCategoryAdd(false);
+    }
+
+    function handleRemoveItem(id) {
+        removeMenuItem(id);
+    }
+
+    function handleRemoveCategory(id) {
+        removeCategory(id);
+    }
+
+    // let data = [
+    //     { category: '性別', items: [{ id: 'M', text: '男' }, { id: 'F', text: '女' }] },
+    //     { category: '縣市', items: [{ id: 'taipei', text: '台北' }, { id: 'taichung', text: '台中' }] }
+    // ];
+
+    const data = menuItems;
+    const categories = getCategories();
 
     return (
         <ThemeContext.Consumer>
             {darkTheme => {
                 return <div>
-                    <InputItem show={showWinAdd} handleClose={handleClose}></InputItem>
+
+                    <InputItem show={showWinAdd} handleClose={handleClose} categoryId={activeCategoryId}></InputItem>
+                    <InputCategory show={showWinCategoryAdd} handleClose={handleCloseCategory}></InputCategory>
+
                     <div className={["content-wrapper", darkTheme ? "dark-mode" : ""].join(" ")}>
                         <div className="content-header">
                             <div className="container-fluid">
@@ -47,7 +76,7 @@ export default function ItemList(props) {
                                 {/* Main row */}
                                 <div className="row">
                                     <div className="col-12">
-                                        <button className='btn btn-primary' onClick={handleAdd}>Add Item</button>
+                                        <button className='btn btn-primary' onClick={handleAddCategory}>Add Category</button>
                                     </div>
                                 </div>
                                 <br />
@@ -59,8 +88,8 @@ export default function ItemList(props) {
                                                     {
                                                         data.map((n, i) => {
                                                             return (
-                                                                <li className="nav-item" key={i}>
-                                                                    <a className={["nav-link", i == 0 ? "active" : ""].join(" ")}
+                                                                <li className="nav-item" key={i} >
+                                                                    <a className={["nav-link", i === 0 ? "active" : ""].join(" ")}
                                                                         id={"custom-tabs-" + (i + 1) + "-tab"}
                                                                         data-toggle="pill"
                                                                         href={"#custom-tabs-" + (i + 1)}
@@ -77,25 +106,38 @@ export default function ItemList(props) {
                                             </div>
                                             <div className="card-body">
                                                 <div className="tab-content" id="custom-tabs-one-tabContent">
+
                                                     {
                                                         data.map((n, i) => {
                                                             return (
-                                                                <div className={["tab-pane fade show", i == 0 ? "active" : ""].join(" ")}
+                                                                <div className={["tab-pane fade show", i === 0 ? "active" : ""].join(" ")}
                                                                     id={"custom-tabs-" + (i + 1)} role="tabpanel"
-                                                                    aria-labelledby={"custom-tabs-" + (i + 1) + "-tab"}>
-                                                                    <table className="table">
+                                                                    aria-labelledby={"custom-tabs-" + (i + 1) + "-tab"}
+                                                                    key={"div" + n.id}
+                                                                >
+                                                                    <button className='btn btn-primary' key={"btn" + n.id} onClick={() => handleAdd(n.id)}>Add Item</button>
+                                                                    {/* <button className="btn btn-default" onClick={() => handleRemoveCategory(n.id)}>
+                                                                        <i className="fas fa-times"></i> Remove Category
+                                                                    </button> */}
+                                                                    <table className="table" key={"table" + n.id}>
                                                                         <thead>
                                                                             <tr>
-                                                                                <th width="200" >id</th>
-                                                                                <th>text</th>
+                                                                                <th width="150"></th>
+                                                                                <th width="200" >Code</th>
+                                                                                <th>Text</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
                                                                             {
                                                                                 n.items.map((m, j) => {
                                                                                     return (
-                                                                                        <tr>
-                                                                                            <td>{m.id}</td>
+                                                                                        <tr key={j} >
+                                                                                            <td>
+                                                                                                <button className="btn btn-default" onClick={() => handleRemoveItem(m.id)}>
+                                                                                                    <i className="fas fa-times"></i>
+                                                                                                </button>
+                                                                                            </td>
+                                                                                            <td>{m.code}</td>
                                                                                             <td>{m.text}</td>
                                                                                         </tr>
                                                                                     )

@@ -15,10 +15,10 @@ export default function Menu() {
       {/* Sidebar user panel (optional) */}
       <div className="user-panel mt-3 pb-3 mb-3 d-flex">
         <div className="image">
-          <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
+          <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User" />
         </div>
         <div className="info">
-          <a href="#" className="d-block">Alexander Pierce</a>
+          <div  className="d-block">Alexander Pierce</div>
         </div>
       </div>
       {/* SidebarSearch Form */}
@@ -38,13 +38,13 @@ export default function Menu() {
           {/* Add icons to the links using the .nav-icon class
          with font-awesome or any other icon font library */}
           <li className="nav-item menu-open">
-            <a href="#" className="nav-link active">
+            <div className="nav-link active">
               <i className="nav-icon fas fa-tachometer-alt" />
               <p>
                 Dashboard
                 <i className="right fas fa-angle-left" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="./index.html" className="nav-link active">
@@ -76,14 +76,14 @@ export default function Menu() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div className="nav-link">
               <i className="nav-icon fas fa-copy" />
               <p>
                 Layout Options
                 <i className="fas fa-angle-left right" />
                 <span className="badge badge-info right">6</span>
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/layout/top-nav.html" className="nav-link">
@@ -136,13 +136,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-chart-pie" />
               <p>
                 Charts
                 <i className="right fas fa-angle-left" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/charts/chartjs.html" className="nav-link">
@@ -171,13 +171,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-tree" />
               <p>
                 UI Elements
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/UI/general.html" className="nav-link">
@@ -230,13 +230,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-edit" />
               <p>
                 Forms
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/forms/general.html" className="nav-link">
@@ -265,13 +265,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-table" />
               <p>
                 Tables
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/tables/simple.html" className="nav-link">
@@ -320,13 +320,13 @@ export default function Menu() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon far fa-envelope" />
               <p>
                 Mailbox
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/mailbox/mailbox.html" className="nav-link">
@@ -349,13 +349,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-book" />
               <p>
                 Pages
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/examples/invoice.html" className="nav-link">
@@ -420,22 +420,22 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon far fa-plus-square" />
               <p>
                 Extras
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <div  className="nav-link">
                   <i className="far fa-circle nav-icon" />
                   <p>
                     Login &amp; Register v1
                     <i className="fas fa-angle-left right" />
                   </p>
-                </a>
+                </div>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="pages/examples/login.html" className="nav-link">
@@ -464,13 +464,13 @@ export default function Menu() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <div  className="nav-link">
                   <i className="far fa-circle nav-icon" />
                   <p>
                     Login &amp; Register v2
                     <i className="fas fa-angle-left right" />
                   </p>
-                </a>
+                </div>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
                     <a href="pages/examples/login-v2.html" className="nav-link">
@@ -549,13 +549,13 @@ export default function Menu() {
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-search" />
               <p>
                 Search
                 <i className="fas fa-angle-left right" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
                 <a href="pages/search/simple.html" className="nav-link">
@@ -586,87 +586,87 @@ export default function Menu() {
           </li>
           <li className="nav-header">MULTI LEVEL EXAMPLE</li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div className="nav-link">
               <i className="fas fa-circle nav-icon" />
               <p>Level 1</p>
-            </a>
+            </div>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon fas fa-circle" />
               <p>
                 Level 1
                 <i className="right fas fa-angle-left" />
               </p>
-            </a>
+            </div>
             <ul className="nav nav-treeview">
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <div  className="nav-link">
                   <i className="far fa-circle nav-icon" />
                   <p>Level 2</p>
-                </a>
+                </div>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <div  className="nav-link">
                   <i className="far fa-circle nav-icon" />
                   <p>
                     Level 2
                     <i className="right fas fa-angle-left" />
                   </p>
-                </a>
+                </div>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="#" className="nav-link">
+                    <div  className="nav-link">
                       <i className="far fa-dot-circle nav-icon" />
                       <p>Level 3</p>
-                    </a>
+                    </div>
                   </li>
                   <li className="nav-item">
-                    <a href="#" className="nav-link">
+                    <div  className="nav-link">
                       <i className="far fa-dot-circle nav-icon" />
                       <p>Level 3</p>
-                    </a>
+                    </div>
                   </li>
                   <li className="nav-item">
-                    <a href="#" className="nav-link">
+                    <div className="nav-link">
                       <i className="far fa-dot-circle nav-icon" />
                       <p>Level 3</p>
-                    </a>
+                    </div>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a href="#" className="nav-link">
+                <div  className="nav-link">
                   <i className="far fa-circle nav-icon" />
                   <p>Level 2</p>
-                </a>
+                </div>
               </li>
             </ul>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="fas fa-circle nav-icon" />
               <p>Level 1</p>
-            </a>
+            </div>
           </li>
           <li className="nav-header">LABELS</li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon far fa-circle text-danger" />
               <p className="text">Important</p>
-            </a>
+            </div>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon far fa-circle text-warning" />
               <p>Warning</p>
-            </a>
+            </div>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link">
+            <div  className="nav-link">
               <i className="nav-icon far fa-circle text-info" />
               <p>Informational</p>
-            </a>
+            </div>
           </li>
         </ul>
       </nav>

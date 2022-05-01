@@ -14,8 +14,6 @@ export default function App() {
 
   const { menuItems, addMenuItem } = useMenuItems()
 
-  //const [darkTheme, setDarkTheme] = useState(true);
-
   const [darkTheme,setDarkTheme]=useLocalStorage("darkTheme",true);
 
 

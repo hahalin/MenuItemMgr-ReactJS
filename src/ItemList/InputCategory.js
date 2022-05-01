@@ -2,54 +2,43 @@ import React, { useState, useEffect, useRef } from 'react'
 import Modal from "react-bootstrap/Modal";
 import ModalBody from "react-bootstrap/ModalBody";
 import ModalHeader from "react-bootstrap/ModalHeader";
-
 import ModalTitle from "react-bootstrap/ModalTitle";
 import { useMenuItems } from "../contexts/MenuItemsContext"
 
 
-export default function InputItem(props) {
+export default function InputCategory(props) {
 
-    const { menuItems, addMenuItem,getCategories} = useMenuItems()
+    const { addCategory} = useMenuItems()
 
     const [show, setShow] = useState(false);
 
-    const codeRef = useRef();
-    const textRef = useRef();
+    const categoryRef=useRef();
 
-    console.log(props);
+
     useEffect(() => {
         setShow(props.show);
     }, [props.show]);
 
     function handleSubmit(e) {
         e.preventDefault();
-        addMenuItem({
-            categoryId:props.categoryId,
-            code:codeRef.current.value,
-            text:textRef.current.value
+        addCategory({
+            category:categoryRef.current.value
         });
         props.handleClose();
     }
-    const categories=getCategories();
     return (
         <Modal show={show} size="lg" >
             <ModalHeader>
-                <ModalTitle>Add Item</ModalTitle>
+                <ModalTitle>Add Category</ModalTitle>
             </ModalHeader>
             <ModalBody>
                 <div className="card_">
                     <form className="form-horizontal" onSubmit={handleSubmit}>
                         <div className="card-body">
                             <div className="form-group row">
-                                <label htmlFor="edItemId" className="col-sm-2 col-form-label">Code</label>
+                                <label htmlFor="edItemCategory" className="col-sm-2 col-form-label">Category</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" placeholder="Code" ref={codeRef}  />
-                                </div>
-                            </div>
-                            <div className="form-group row">
-                                <label htmlFor="edText" className="col-sm-2 col-form-label">Text</label>
-                                <div className="col-sm-10">
-                                    <input type="text" className="form-control" placeholder="Text" ref={textRef}  />
+                                    <input type="text" className="form-control"  ref={categoryRef}  />    
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center">
