@@ -21,9 +21,6 @@ export const MenuItemsProvider=({children})=>{
     }
 
     function addMenuItem({categoryId,code,text}){
-        console.log(categoryId);
-        console.log(code);
-        console.log(text);
         setMenuItems(previtems=>previtems.map(m => 
             m.id==categoryId?
             {

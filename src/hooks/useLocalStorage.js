@@ -13,7 +13,7 @@ function useLocalStorage(key,defaultValue){
        return [];
        
        
-       if(typeof deafultValue==="function"){
+       if(typeof defaultValue==="function"){
            return defaultValue()
        }
        else{

@@ -20,6 +20,7 @@ export default function InputCategory(props) {
     }, [props.show]);
 
     function handleSubmit(e) {
+        console.log('call submit');
         e.preventDefault();
         addCategory({
             category:categoryRef.current.value
@@ -43,7 +44,7 @@ export default function InputCategory(props) {
                             </div>
                             <div className="d-flex justify-content-center">
                                 <button className="btn btn-primary" type="submit">Save</button>
-                                <button className="btn btn-default" onClick={props.handleClose}>Cancel</button>
+                                <button className="btn btn-default" type="button" onClick={props.handleClose}>Cancel</button>
                             </div>
                         </div>
                     </form>

@@ -9,17 +9,17 @@ import { useMenuItems } from "../contexts/MenuItemsContext"
 
 export default function InputItem(props) {
 
-    const { menuItems, addMenuItem,getCategories} = useMenuItems()
+    const { addMenuItem} = useMenuItems()
 
     const [show, setShow] = useState(false);
 
     const codeRef = useRef();
     const textRef = useRef();
 
-    console.log(props);
-    useEffect(() => {
-        setShow(props.show);
-    }, [props.show]);
+    
+     useEffect(() => {
+         setShow(props.show);
+     }, [props.show]);
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -30,7 +30,6 @@ export default function InputItem(props) {
         });
         props.handleClose();
     }
-    const categories=getCategories();
     return (
         <Modal show={show} size="lg" >
             <ModalHeader>
@@ -54,7 +53,7 @@ export default function InputItem(props) {
                             </div>
                             <div className="d-flex justify-content-center">
                                 <button className="btn btn-primary" type="submit">Save</button>
-                                <button className="btn btn-default" onClick={props.handleClose}>Cancel</button>
+                                <button className="btn btn-default" type="button" onClick={props.handleClose}>Cancel</button>
                             </div>
                         </div>
                     </form>
