@@ -2,7 +2,7 @@
 
 ## 用ReactJS製作關聯資料項目管理系統
 
-1. 運用了ook來管理state。
+1. 運用了hook來管理state。
 2. 資料存放於localStorage，可獨立運行，適合新手繼續練習發展成自己所需要的CRUD類型的side Project。
 3. 運用了context來集中管理存取資料的各function。
 
