@@ -12,6 +12,12 @@
 2. 各分類可新增、刪除歸屬的項目清單。
 3. 適用於管理分類選單、下拉選單需要關聯的清單，例如性別的男、女，或是尺寸大小的XL、L、M與S等。
 
+![image](https://user-images.githubusercontent.com/2748761/166237147-9b39f049-df23-4420-b1de-189e3a44d5e2.png)
+
+![image](https://user-images.githubusercontent.com/2748761/166237212-2b856df2-3869-4320-8123-3650f479627f.png)
+
+![image](https://user-images.githubusercontent.com/2748761/166237283-1714fdd7-3b49-4e67-87f9-fa9c816539b8.png)
+
 ## 使用方式
 
 在專案資料夾下，使用以下指令執行
