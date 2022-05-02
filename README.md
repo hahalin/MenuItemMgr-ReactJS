@@ -1,4 +1,4 @@
-# Side Project ReactJS系列-關聯資料項目管理系統
+# Side Project React系列-關聯資料項目管理系統
 
 ## 用ReactJS製作關聯資料項目管理系統
 
