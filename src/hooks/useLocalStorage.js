@@ -4,14 +4,10 @@ function useLocalStorage(key,defaultValue){
     const [json,setJson]=useState();
     const [value,setValue]=useState(()=>{
        const jsonValue=localStorage.getItem(key);
-       if(jsonValue!=null) {
+       if(jsonValue!=null && jsonValue !='') {
            let obj=JSON.parse(jsonValue);
-           //console.log('set json');
-           //setJson(jsonValue);
            return obj;
        }
-       return [];
-       
        
        if(typeof defaultValue==="function"){
            return defaultValue()

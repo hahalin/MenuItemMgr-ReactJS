@@ -42,13 +42,13 @@ export default function InputItem(props) {
                             <div className="form-group row">
                                 <label htmlFor="edItemId" className="col-sm-2 col-form-label">Code</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" placeholder="Code" ref={codeRef}  />
+                                    <input type="text" className="form-control" placeholder="Code" ref={codeRef} required  />
                                 </div>
                             </div>
                             <div className="form-group row">
                                 <label htmlFor="edText" className="col-sm-2 col-form-label">Text</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control" placeholder="Text" ref={textRef}  />
+                                    <input type="text" className="form-control" placeholder="Text" ref={textRef} required />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center">

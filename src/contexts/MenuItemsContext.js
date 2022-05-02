@@ -12,6 +12,12 @@ export const MenuItemsProvider=({children})=>{
     
     const [menuItems,setMenuItems]=useLocalStorage("menuItems",[]);
 
+    if(menuItems.length==0)
+    {
+        addCategory({category:'size'});
+        addCategory({category:'country'});
+    }
+
     function getCategories(){
         return menuItems.map(n=>{return {id:n.id,category:n.category};});
     }

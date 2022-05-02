@@ -10,7 +10,7 @@ export default function ItemList(props) {
     const [showWinAdd, setShowWinAdd] = useState(false);
     const [activeCategoryId, setActiveCategoryId] = useState('');
     const [showWinCategoryAdd, setShowWinCategoryAdd] = useState(false);
-    const { menuItems, getCategories, removeMenuItem, removeCategory } = useMenuItems();
+    const { menuItems, removeMenuItem, removeCategory,addCategory } = useMenuItems();
 
     function handleAdd(id) {
         setActiveCategoryId(id);
@@ -39,7 +39,12 @@ export default function ItemList(props) {
 
 
     const data = menuItems;
-    const categories = getCategories();
+
+    if (data.length==0)
+    {
+        
+
+    }
 
     return (
         <>

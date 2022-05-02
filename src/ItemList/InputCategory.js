@@ -20,7 +20,6 @@ export default function InputCategory(props) {
     }, [props.show]);
 
     function handleSubmit(e) {
-        console.log('call submit');
         e.preventDefault();
         addCategory({
             category:categoryRef.current.value
@@ -39,7 +38,7 @@ export default function InputCategory(props) {
                             <div className="form-group row">
                                 <label htmlFor="edItemCategory" className="col-sm-2 col-form-label">Category</label>
                                 <div className="col-sm-10">
-                                    <input type="text" className="form-control"  ref={categoryRef}  />    
+                                    <input type="text" className="form-control"  ref={categoryRef}  required />    
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center">
